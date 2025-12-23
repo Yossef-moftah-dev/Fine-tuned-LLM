@@ -1,5 +1,0 @@
-full 
-https://huggingface.co/datasets/bigcode/the-stack-v2
-
-subset
-https://huggingface.co/datasets/Reset23/the-stack-v2-blamed-cpp/viewer
