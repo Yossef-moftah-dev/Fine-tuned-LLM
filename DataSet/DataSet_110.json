@@ -2,62 +2,62 @@
     {
         "id": 1,
         "instruction": "Summarize the purpose of this C++ code in one or two sentences.",
-        "input": "#include <iostream>\nusing namespace std;\n\nint main(){\n    cout << \"Hello world!\\n\";\n    return 0;\n}",
-        "output": "This program includes the standard input-output library and prints the message \"Hello world!\" to the console, then terminates successfully."
+        "input": "#include <iostream>\n#include <vector>\n#include <numeric>\n\nint main() {\n    std::vector<int> data = {10, 20, 30, 40};\n    int total = std::accumulate(data.begin(), data.end(), 0);\n    std::cout << \"Total: \" << total << std::endl;\n    return 0;\n}",
+        "output": "This program calculates the sum of elements in a dynamic vector using the STL accumulate algorithm. It demonstrates the use of container iteration and the numeric header in modern C++."
     },
     {
         "id": 2,
         "instruction": "Summarize the purpose of this C++ code in one or two sentences.",
-        "input": "#include <iostream>\nusing namespace std;\n\nint main(){\n    int a = 10, b = 20;\n    int sum = a + b;\n    cout << \"Sum: \" << sum << endl;\n    return 0;\n}",
-        "output": "This program declares two integer variables, adds them together, and displays the result to the console. It demonstrates basic arithmetic operations and output formatting in C++."
+        "input": "#include <iostream>\n\nvoid swap(int* a, int* b) {\n    int temp = *a;\n    *a = *b;\n    *b = temp;\n}\n\nint main() {\n    int x = 5, y = 10;\n    swap(&x, &y);\n    return 0;\n}",
+        "output": "This code implements a utility function to swap two integer values using pointer dereferencing to modify the original variables. It illustrates manual memory addressing and pass-by-pointer semantics."
     },
     {
         "id": 3,
         "instruction": "Summarize the purpose of this C++ code in one or two sentences.",
-        "input": "#include <iostream>\nusing namespace std;\n\nint main(){\n    for(int i = 1; i <= 5; i++){\n        cout << i << \" \";\n    }\n    cout << endl;\n    return 0;\n}",
-        "output": "This program uses a for loop to iterate from 1 to 5 and prints each number separated by spaces. It demonstrates basic loop control structure in C++."
+        "input": "#include <fstream>\n#include <string>\n\nint main() {\n    std::ofstream outfile(\"test.txt\");\n    outfile << \"Writing to a file.\" << std::endl;\n    outfile.close();\n    return 0;\n}",
+        "output": "This program creates an output file stream to write a string literal into a local text file. It demonstrates basic file system interaction and stream management in C++."
     },
     {
         "id": 4,
         "instruction": "Summarize the purpose of this C++ code in one or two sentences.",
-        "input": "#include <iostream>\nusing namespace std;\n\nint factorial(int n){\n    if(n <= 1) return 1;\n    return n * factorial(n - 1);\n}\n\nint main(){\n    cout << \"Factorial of 5: \" << factorial(5) << endl;\n    return 0;\n}",
-        "output": "This program defines a recursive function to calculate the factorial of a number and calls it with the value 5. It demonstrates recursion and function declaration in C++."
+        "input": "template <typename T>\nT getMax(T a, T b) {\n    return (a > b) ? a : b;\n}\n\nint main() {\n    int m = getMax<int>(3, 7);\n    return 0;\n}",
+        "output": "This code defines a generic template function to compare two values of any type and return the larger one. It demonstrates compile-time polymorphism and template instantiation."
     },
     {
         "id": 5,
         "instruction": "Summarize the purpose of this C++ code in one or two sentences.",
-        "input": "#include <iostream>\nusing namespace std;\n\nint main(){\n    int arr[] = {5, 2, 8, 1, 9};\n    int max = arr[0];\n    for(int i = 1; i < 5; i++){\n        if(arr[i] > max) max = arr[i];\n    }\n    cout << \"Maximum: \" << max << endl;\n    return 0;\n}",
-        "output": "This program finds and displays the maximum value in an integer array by iterating through all elements and comparing them. It demonstrates array manipulation and conditional logic in C++."
+        "input": "#include <iostream>\n#include <memory>\n\nclass Resource {\npublic:\n    Resource() { std::cout << \"Acquired\\n\"; }\n    ~Resource() { std::cout << \"Released\\n\"; }\n};\n\nint main() {\n    std::unique_ptr<Resource> res = std::make_unique<Resource>();\n    return 0;\n}",
+        "output": "This program manages a class instance's lifecycle using a smart pointer to ensure automatic memory deallocation. It demonstrates the RAII (Resource Acquisition Is Initialization) pattern and modern memory management."
     },
     {
         "id": 6,
         "instruction": "Summarize the purpose of this C++ code in one or two sentences.",
-        "input": "#include <iostream>\n#include <string>\nusing namespace std;\n\nint main(){\n    string name;\n    cout << \"Enter your name: \";\n    getline(cin, name);\n    cout << \"Hello, \" << name << \"!\" << endl;\n    return 0;\n}",
-        "output": "This program prompts the user to enter their name, reads the input using getline, and displays a personalized greeting. It demonstrates basic user input handling and string manipulation in C++."
+        "input": "#include <iostream>\n#include <map>\n#include <string>\n\nint main() {\n    std::map<std::string, int> ages;\n    ages[\"Alice\"] = 25;\n    std::cout << \"Alice's age: \" << ages[\"Alice\"] << std::endl;\n    return 0;\n}",
+        "output": "This program utilizes an associative container to map string keys to integer values for efficient data retrieval. It demonstrates the usage of the STL map for key-value storage."
     },
     {
         "id": 7,
         "instruction": "Summarize the purpose of this C++ code in one or two sentences.",
-        "input": "#include <iostream>\nusing namespace std;\n\nint main(){\n    int num = 17;\n    bool isPrime = true;\n    for(int i = 2; i * i <= num; i++){\n        if(num % i == 0){\n            isPrime = false;\n            break;\n        }\n    }\n    cout << num << (isPrime ? \" is prime\" : \" is not prime\") << endl;\n    return 0;\n}",
-        "output": "This program checks whether the number 17 is prime by testing divisibility from 2 up to its square root. It demonstrates conditional logic, loops, and the ternary operator in C++."
+        "input": "#include <iostream>\n#include <stdexcept>\n\nint main() {\n    try {\n        throw std::runtime_error(\"Error occurred\");\n    } catch (const std::exception& e) {\n        std::cerr << e.what() << std::endl;\n    }\n    return 0;\n}",
+        "output": "This code implements an exception handling block to catch and report a runtime error safely. It demonstrates the use of try-catch blocks and the standard exception library."
     },
     {
         "id": 8,
         "instruction": "Summarize the purpose of this C++ code in one or two sentences.",
-        "input": "#include <iostream>\nusing namespace std;\n\nclass Rectangle{\npublic:\n    int width, height;\n    int area(){ return width * height; }\n};\n\nint main(){\n    Rectangle rect;\n    rect.width = 5;\n    rect.height = 3;\n    cout << \"Area: \" << rect.area() << endl;\n    return 0;\n}",
-        "output": "This program defines a Rectangle class with width and height attributes and a method to calculate area, then creates an object and displays its area. It demonstrates basic object-oriented programming concepts including class definition and member functions in C++."
+        "input": "#include <iostream>\n#include <algorithm>\n#include <vector>\n\nint main() {\n    std::vector<int> v = {1, 2, 3, 4, 5};\n    std::for_each(v.begin(), v.end(), [](int n) { std::cout << n * n << \" \"; });\n    return 0;\n}",
+        "output": "This program applies a lambda expression to square and print every element within a vector using the for_each algorithm. It demonstrates functional programming techniques and anonymous functions in C++."
     },
     {
         "id": 9,
         "instruction": "Summarize the purpose of this C++ code in one or two sentences.",
-        "input": "#include <iostream>\nusing namespace std;\n\nint main(){\n    int n = 10;\n    int fib1 = 0, fib2 = 1, next;\n    for(int i = 0; i < n; i++){\n        cout << fib1 << \" \";\n        next = fib1 + fib2;\n        fib1 = fib2;\n        fib2 = next;\n    }\n    cout << endl;\n    return 0;\n}",
-        "output": "This program generates and prints the first 10 numbers in the Fibonacci sequence using an iterative approach. It demonstrates loop iteration and variable manipulation to compute sequential values in C++."
+        "input": "struct Node {\n    int data;\n    Node* next;\n};\n\nvoid printList(Node* n) {\n    while (n != nullptr) {\n        std::cout << n->data << \" \";\n        n = n->next;\n    }\n}",
+        "output": "This snippet defines a linked list node structure and a traversal function to print the list's contents. It illustrates basic data structure implementation using pointers and structs."
     },
     {
         "id": 10,
         "instruction": "Summarize the purpose of this C++ code in one or two sentences.",
-        "input": "#include <iostream>\n#include <algorithm>\nusing namespace std;\n\nint main(){\n    int arr[] = {64, 34, 25, 12, 22};\n    int n = sizeof(arr)/sizeof(arr[0]);\n    sort(arr, arr + n);\n    cout << \"Sorted array: \";\n    for(int i = 0; i < n; i++)\n        cout << arr[i] << \" \";\n    cout << endl;\n    return 0;\n}",
-        "output": "This program sorts an integer array in ascending order using the STL sort function and displays the sorted result. It demonstrates the use of standard library algorithms and array size calculation in C++."
+        "input": "#define SQUARE(x) ((x) * (x))\n#include <iostream>\n\nint main() {\n    std::cout << SQUARE(5) << std::endl;\n    return 0;\n}",
+        "output": "This program uses a preprocessor macro to calculate the square of a number via text substitution before compilation. It demonstrates the use of compiler directives and macro definitions."
     },
     {
         "id": 11,
@@ -615,7 +615,7 @@
         "id": 103,
         "instruction": "Summarize the purpose of this C++ code in one or two sentences.",
         "input": "#include <iostream>\nusing namespace std;\n\nint main(){\n    double principal = 1000;\n    double rate = 5;\n    double time = 2;\n    \n    double simpleInterest = (principal * rate * time) / 100;\n    double amount = principal + simpleInterest;\n    \n    cout << \"Principal: $\" << principal << endl;\n    cout << \"Simple Interest: $\" << simpleInterest << endl;\n    cout << \"Total Amount: $\" << amount << endl;\n    return 0;\n}",
-        "output": "This program calculates simple interest and the total amount using the formula SI = (P×R×T)/100. It demonstrates basic financial calculations for interest computation in C++."
+        "output": "This program calculates simple interest and the total amount using the formula SI = (PÃƒâ€”RÃƒâ€”T)/100. It demonstrates basic financial calculations for interest computation in C++."
     },
     {
         "id": 104,
